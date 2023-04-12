@@ -1,0 +1,73 @@
+.login-section,
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0px 30px;
+}
+.login-container,
+.container {
+  width: 30%;
+  max-width: 500px;
+  background-color: var(--grey-2);
+  color: var(--main-colour);
+  padding: 30px 25px;
+  border-radius: 5px;
+  min-width: 300px;
+  position: relative;
+}
+h1 {
+  margin: 0;
+}
+.h1-m {
+  margin: 10px 0;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.input {
+  display: block;
+  margin: 10px 0;
+  height: 40px;
+  width: 95%;
+  border: 0;
+  padding: 0px 10px;
+  border-bottom: 3px solid var(--main-colour);
+  border-radius: 10px;
+  background-color: transparent;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.label {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+#recaptcha-container {
+  margin-bottom: 20px;
+}
+@media (max-width: 400px) {
+  .login-container,
+  .container {
+    min-width: unset;
+    width: 200px;
+  }
+
+  .label {
+    font-size: 0.8rem;
+  }
+  .resend-btn {
+    position: unset;
+    text-align: end;
+  }
+}

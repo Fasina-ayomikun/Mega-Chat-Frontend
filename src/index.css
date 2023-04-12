@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --main-colour: #133b55;
+  --white: #fff;
+  --colour-1: #b9c5ce;
+  --colour-2: #97a8bc;
+  --colour-3: #052346;
+  --red-colour: #765353;
+  --grey-1: #575555;
+  --light-grey: #d9d9d9;
+  --grey-2: #c7d2ca;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--main-colour);
+  color: var(--white);
+  /* overflow: hidden; */
+  cursor: pointer;
+}
+ul {
+  padding: 0;
+  list-style: none;
+}
+button,
+input {
+  outline: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.btn {
+  background-color: var(--main-colour);
+  padding: 10px 12px;
+  color: var(--white);
+  border: 0;
+  border-radius: 5px;
+  min-width: 100px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+}
+.btn a {
+  color: var(--white);
+}
+
+.resend-btn {
+  position: absolute;
+  right: 30px;
+  bottom: 10px;
+  text-decoration: underline;
+  font-size: 0.7rem;
+}
+h1 {
+  margin: 0;
+}
+.h1-m {
+  margin: 10px 0;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0px 30px;
+}
+
+.container {
+  width: 30%;
+  max-width: 500px;
+  background-color: var(--grey-2);
+  color: var(--main-colour);
+  padding: 30px 25px;
+  border-radius: 5px;
+  min-width: 300px;
+  position: relative;
+}
+
+.input {
+  display: block;
+  margin: 10px 0;
+
+  height: 40px;
+  width: 95%;
+  border: 0;
+  padding: 0px 10px;
+  border-bottom: 3px solid var(--main-colour);
+  border-radius: 10px;
+  background-color: transparent;
+}
+.img-container {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: relative;
+}
+.online-status {
+  position: absolute;
+  bottom: 0;
+  right: -3px;
+  width: 15px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: rgb(67, 243, 67);
+}
+img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@media (max-width: 400px) {
+  .container {
+    min-width: unset;
+    width: 200px;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+  .label {
+    font-size: 0.8rem;
+  }
+  .resend-btn {
+    position: unset;
+    text-align: center;
+  }
+  .input {
+    margin-bottom: 10px;
+  }
+}
