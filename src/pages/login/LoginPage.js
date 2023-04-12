@@ -22,7 +22,6 @@ function LoginPage() {
   const recaptcha = () => {
     window.recaptchaVerifier = new RecaptchaVerifier(
       recapRef.current.id,
-      { size: "invisible" },
       auth
     );
     window.recaptchaVerifier.render();
