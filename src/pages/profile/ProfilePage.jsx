@@ -15,7 +15,7 @@ function ProfilePage() {
     e.preventDefault();
     dispatch(registerUser({ name, bio, profilePicture: image, phone }));
     navigate("/chats");
-    window.location.reload(false);
+  //  window.location.reload(false);
   };
   const handleKeyUp = (input) => {
     const name = input.name;
