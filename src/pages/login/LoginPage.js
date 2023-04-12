@@ -21,7 +21,7 @@ function LoginPage() {
   const confirmationRef = useRef();
   const recaptcha = () => {
     window.recaptchaVerifier = new RecaptchaVerifier(
-      recapRef.current.id,{},
+      recapRef.current.id,{ size: "invisible" },
       auth
     );
     window.recaptchaVerifier.render();
