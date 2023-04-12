@@ -13,6 +13,8 @@ function LoginPage() {
   const [open, setOpen] = useState(false);
   const [verificationCode, setVerificationCode] = useState("");
   const recapRef = useRef();
+  const verificationRef = useRef();
+  const numberRef = useRef();
   const { userExist } = useSelector((s) => s.user);
   const dispatch = useDispatch();
   let user = getFromLocalStorage();
@@ -32,6 +34,7 @@ function LoginPage() {
         window.confirmationResult = confirmationResult;
         confirmationRef.current = confirmationResult;
         setOpen(true);
+
         if (confirmationResult) {
           toast.success("OTP sent successfully");
         }
@@ -81,6 +84,7 @@ function LoginPage() {
               Enter your Verification Code:
             </label>
             <input
+              ref={verificationRef}
               type='number'
               id='code'
               defaultValue=''
@@ -97,7 +101,15 @@ function LoginPage() {
             >
               Done
             </button>
-            <h5 className='resend-btn'>Resend OTP</h5>
+            <h5
+              className='resend-btn'
+              onClick={() => {
+                setVerificationCode("123456");
+                verificationRef.current.value = "123456";
+              }}
+            >
+              Generate test otp
+            </h5>
           </form>
         ) : (
           <form>
@@ -106,6 +118,7 @@ function LoginPage() {
             </label>
             <input
               type='text'
+              ref={numberRef}
               id='phone-no'
               className='input'
               maxLength='15'
@@ -125,6 +138,15 @@ function LoginPage() {
             >
               Done
             </button>
+            <h5
+              className='resend-btn'
+              onClick={() => {
+                setNumber("+2348169679473");
+                numberRef.current.value = "+2348169679473";
+              }}
+            >
+              Generate test number
+            </h5>
           </form>
         )}
       </div>

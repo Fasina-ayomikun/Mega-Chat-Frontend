@@ -15,7 +15,7 @@ function ContactModel() {
   const [open, setOpen] = useState(false);
   const [contactId, setContactId] = useState(null);
   const { contacts, filteredContacts } = useSelector((s) => s.allContacts);
-  const { isLoading } = useSelector((s) => s.conversation);
+  const { isLoading } = useSelector((s) => s.contacts);
   const user = getFromLocalStorage();
   useEffect(() => {
     dispatch(getAllContacts(user?._id));
