@@ -40,7 +40,7 @@ function DisplayNav({ isUserConnected, receiver }) {
         }}
       />
       {isChatModalOpen && (
-        <ul className='toggle-details'>
+        <ul className='toggle-details' onClick={() => dispatch(openChatDiv())}>
           <li
             onClick={() => {
               if (!receiver?._id) {
