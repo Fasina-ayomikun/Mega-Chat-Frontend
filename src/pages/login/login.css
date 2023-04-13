@@ -66,8 +66,4 @@ input[type="number"] {
   .label {
     font-size: 0.8rem;
   }
-  .resend-btn {
-    position: unset;
-    text-align: end;
-  }
 }

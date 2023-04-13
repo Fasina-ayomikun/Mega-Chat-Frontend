@@ -53,7 +53,7 @@ a {
 .resend-btn {
   position: absolute;
   right: 30px;
-  bottom: 10px;
+  bottom: -7px;
   text-decoration: underline;
   font-size: 0.7rem;
 }
@@ -134,6 +134,7 @@ img {
   .resend-btn {
     position: unset;
     text-align: center;
+    margin: 5px 0;
   }
   .input {
     margin-bottom: 10px;

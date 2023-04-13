@@ -1,21 +1,22 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import "./profile.css";
 import { useDispatch, useSelector } from "react-redux";
 import { handleChange, registerUser } from "../../features/user/userSlice";
 import { useNavigate } from "react-router-dom";
 import { uploadImage } from "../../features/files/fileSlice";
+import { getFromLocalStorage } from "../../utils/localStorage";
+import Loading from "../../utils/loadings/Loading";
 function ProfilePage() {
   const { name, phone, bio } = useSelector((s) => s.user);
   let file = new FormData();
   const dispatch = useDispatch();
-  const { image } = useSelector((s) => s.file);
+  const { isLoading: imageLoading, image } = useSelector((s) => s.file);
+  const { isLoading } = useSelector((s) => s.user);
   const navigate = useNavigate();
-
+  const user = getFromLocalStorage();
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(registerUser({ name, bio, profilePicture: image, phone }));
-    navigate("/chats");
-  //  window.location.reload(false);
   };
   const handleKeyUp = (input) => {
     const name = input.name;
@@ -27,6 +28,14 @@ function ProfilePage() {
     file.append("image", files[0]);
     dispatch(uploadImage(file));
   };
+  useEffect(() => {
+    if (user) {
+      navigate("/chats");
+    }
+  }, [user]);
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <section className='section'>
       <div className='container error-container'>
@@ -47,6 +56,7 @@ function ProfilePage() {
           <input
             ref={fileRef}
             type='file'
+            disabled={imageLoading ? true : false}
             onChange={(e) => handleFileUpload(e.target.files)}
             style={{ display: "none" }}
             accept='image/png, image/jpeg'

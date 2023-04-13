@@ -1,8 +1,5 @@
-const setToLocalStorage = (user) => {
-  localStorage.setItem("Mama-Recipe-user", JSON.stringify(user));
-};
 const removeFromLocalStorage = () => {
-  localStorage.removeItem("Mama-Recipe-user");
+  localStorage.removeItem("Mega-Chat-User-Info");
 };
 
 const getFromLocalStorage = () => {
@@ -11,4 +8,4 @@ const getFromLocalStorage = () => {
   return user;
 };
 
-export { setToLocalStorage, removeFromLocalStorage, getFromLocalStorage };
+export { removeFromLocalStorage, getFromLocalStorage };

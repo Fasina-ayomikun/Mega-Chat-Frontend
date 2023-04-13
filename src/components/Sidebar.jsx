@@ -10,8 +10,10 @@ import { useNavigate } from "react-router-dom";
 import { openModal } from "../features/modal/modalSlice";
 import { getAllContacts } from "../features/allContact/allContactSlice";
 import SingleConversation from "../utils/SingleConversation";
-import { getFromLocalStorage } from "../utils/localStorage";
-import { createConversation } from "../features/conversation/conversationSlice";
+import {
+  getFromLocalStorage,
+  removeFromLocalStorage,
+} from "../utils/localStorage";
 
 function Sidebar({ connectionUsers, setReceiver }) {
   const { filteredConversations } = useSelector((s) => s.allConversations);
@@ -67,7 +69,14 @@ function Sidebar({ connectionUsers, setReceiver }) {
               >
                 <li onClick={() => navigate("/contacts")}>New conversation</li>
                 <li onClick={() => navigate("/new-contact")}>New contact</li>
-                <li>Logout</li>
+                <li
+                  onClick={() => {
+                    removeFromLocalStorage();
+                    navigate("/");
+                  }}
+                >
+                  Logout
+                </li>
               </ul>
             )}
             <li
