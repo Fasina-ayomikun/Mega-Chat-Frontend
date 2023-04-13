@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   closeChat,
   closeChatDiv,
+  openChatDiv,
   openChatModal,
 } from "../features/modal/modalSlice";
 import { BiDotsVerticalRounded } from "react-icons/bi";
