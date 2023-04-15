@@ -1,6 +1,4 @@
 import { customUrl } from "../../utils/customUrl";
-import { getAllContacts } from "../allContact/allContactSlice";
-
 const getAllMessagesThunk = async (_, thunkAPI) => {
   try {
     const conversationId = JSON.parse(
@@ -10,7 +8,7 @@ const getAllMessagesThunk = async (_, thunkAPI) => {
 
     return resp.data;
   } catch (error) {
-    thunkAPI.rejectWithValue(error.response.data);
+    return thunkAPI.rejectWithValue(error.response.data.msg);
   }
 };
 

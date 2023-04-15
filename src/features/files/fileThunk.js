@@ -5,7 +5,7 @@ const uploadImageThunk = async (file, thunkAPI) => {
     const resp = await customUrl.post("/upload", file);
     return resp.data;
   } catch (error) {
-    thunkAPI.rejectWithValue(error.response);
+    return thunkAPI.rejectWithValue(error.response.data.msg);
   }
 };
 export { uploadImageThunk };

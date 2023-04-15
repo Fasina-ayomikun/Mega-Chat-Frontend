@@ -8,7 +8,7 @@ const createContactThunk = async (contact, thunkAPI) => {
     const resp = await customUrl.post("/contacts", contact);
     return resp.data;
   } catch (error) {
-    thunkAPI.rejectWithValue(error.response.data);
+    return thunkAPI.rejectWithValue(error.response.data.msg);
   }
 };
 const editContactThunk = async (contact, thunkAPI) => {
@@ -22,7 +22,7 @@ const editContactThunk = async (contact, thunkAPI) => {
     thunkAPI.dispatch(getAllContacts(user?._id));
     return resp.data;
   } catch (error) {
-    thunkAPI.rejectWithValue(error.response.data);
+    return thunkAPI.rejectWithValue(error.response.data.msg);
   }
 };
 const deleteContactThunk = async (contactId, thunkAPI) => {
@@ -34,7 +34,7 @@ const deleteContactThunk = async (contactId, thunkAPI) => {
     thunkAPI.dispatch(getAllConversations(user?._id));
     return resp.data;
   } catch (error) {
-    thunkAPI.rejectWithValue(error.response.data);
+    return thunkAPI.rejectWithValue(error.response.data.msg);
   }
 };
 

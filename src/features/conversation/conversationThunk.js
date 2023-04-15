@@ -8,7 +8,7 @@ const createConversationThunk = async (conversation, thunkAPI) => {
     const resp = await customUrl.post("/conversation", conversation);
     return resp.data;
   } catch (error) {
-    thunkAPI.rejectWithValue(error.response.data);
+    return thunkAPI.rejectWithValue(error.response.data.msg);
   }
 };
 const deleteConversationThunk = async (conversationId, thunkAPI) => {
@@ -22,7 +22,7 @@ const deleteConversationThunk = async (conversationId, thunkAPI) => {
     thunkAPI.dispatch(clearMessages(conversationId));
     return resp.data;
   } catch (error) {
-    thunkAPI.rejectWithValue(error.response.data);
+    return thunkAPI.rejectWithValue(error.response.data.msg);
   }
 };
 

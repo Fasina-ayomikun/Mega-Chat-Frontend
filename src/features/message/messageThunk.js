@@ -7,7 +7,7 @@ const createMessagesThunk = async (messages, thunkAPI) => {
     thunkAPI.dispatch(getAllMessages());
     return resp.data;
   } catch (error) {
-    thunkAPI.rejectWithValue(error.response.data);
+    return thunkAPI.rejectWithValue(error.response.data.msg);
   }
 };
 const editMessagesThunk = async (message, thunkAPI) => {
@@ -21,7 +21,7 @@ const editMessagesThunk = async (message, thunkAPI) => {
     thunkAPI.dispatch(getAllMessages());
     return resp.data;
   } catch (error) {
-    thunkAPI.rejectWithValue(error.response.data);
+    return thunkAPI.rejectWithValue(error.response.data.msg);
   }
 };
 const deleteMessagesThunk = async ({ messageId, conversationId }, thunkAPI) => {
@@ -30,7 +30,7 @@ const deleteMessagesThunk = async ({ messageId, conversationId }, thunkAPI) => {
     thunkAPI.dispatch(getAllMessages(conversationId));
     return resp.data;
   } catch (error) {
-    thunkAPI.rejectWithValue(error.response.data);
+    return thunkAPI.rejectWithValue(error.response.data.msg);
   }
 };
 const clearMessagesThunk = async (conversationId, thunkAPI) => {
@@ -39,7 +39,7 @@ const clearMessagesThunk = async (conversationId, thunkAPI) => {
     thunkAPI.dispatch(getAllMessages(conversationId));
     return resp.data;
   } catch (error) {
-    thunkAPI.rejectWithValue(error.response.data);
+    return thunkAPI.rejectWithValue(error.response.data.msg);
   }
 };
 

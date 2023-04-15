@@ -6,7 +6,7 @@ const getAllConversationsThunk = async (userId, thunkAPI) => {
 
     return resp.data;
   } catch (error) {
-    thunkAPI.rejectWithValue(error.response.data);
+    return thunkAPI.rejectWithValue(error.response.data.msg);
   }
 };
 
