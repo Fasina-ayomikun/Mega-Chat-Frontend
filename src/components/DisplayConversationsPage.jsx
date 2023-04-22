@@ -120,11 +120,11 @@ function DisplayConversationsPage({ socket, receiver, connectionUsers }) {
                     inputRef.current.value = "";
                     setText("");
                   }
-                  // socket.current.emit("sendMessage", {
-                  //   senderId: user?.phone,
-                  //   receiverId: receiver.phone,
-                  //   text,
-                  // });
+                  socket.current.emit("sendMessage", {
+                    senderId: user?.phone,
+                    receiverId: receiver.phone,
+                    text,
+                  });
                 }
                 inputRef.current.value = "";
                 setText("");
