@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./chats.css";
 import DisplayConversationsPage from "../../components/DisplayConversationsPage";
 import Sidebar from "../../components/Sidebar";
-import { io } from "socket.io-client";
+import io from "socket.io-client";
 import { useDispatch, useSelector } from "react-redux";
 import {
   closeChatDiv,
@@ -29,9 +29,6 @@ function ChatsPage() {
   useEffect(() => {
     socket.current = io(process.env.REACT_APP_SOCKET_LINK, {
       withCredentials: true,
-      extraHeaders: {
-        "Access-Control-Allow-Origin": "https://mega-chat-frontend.vercel.app",
-      },
     });
     if (window.innerWidth < 600) {
       dispatch(openChatDiv());
