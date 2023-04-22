@@ -27,7 +27,7 @@ const editMessagesThunk = async (message, thunkAPI) => {
 const deleteMessagesThunk = async ({ messageId, conversationId }, thunkAPI) => {
   try {
     const resp = await customUrl.delete(`/messages/${messageId}`);
-    thunkAPI.dispatch(getAllMessages(conversationId));
+    thunkAPI.dispatch(getAllMessages());
     return resp.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data.msg);
@@ -36,7 +36,7 @@ const deleteMessagesThunk = async ({ messageId, conversationId }, thunkAPI) => {
 const clearMessagesThunk = async (conversationId, thunkAPI) => {
   try {
     const resp = await customUrl.delete(`/messages/clear/${conversationId}`);
-    thunkAPI.dispatch(getAllMessages(conversationId));
+    thunkAPI.dispatch(getAllMessages());
     return resp.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data.msg);
