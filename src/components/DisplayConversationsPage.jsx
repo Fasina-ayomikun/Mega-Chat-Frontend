@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { io } from "socket.io-client";
+import {} from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { createMessages, editMessages } from "../features/message/messageSlice";
 import { getAllMessages } from "../features/allMessages/allMessagesSlice";
@@ -29,6 +30,9 @@ function DisplayConversationsPage({ socket, receiver, connectionUsers }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllMessages());
+    socket.current = io(process.env.REACT_APP_SOCKET_LINK, {
+      withCredentials: true,
+    });
     socket.current.on("getMessage", (data) => {
       console.log(data);
       if (data.senderId !== user?.phone) {

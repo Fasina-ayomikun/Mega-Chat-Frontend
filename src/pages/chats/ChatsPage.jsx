@@ -2,10 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import "./chats.css";
 import DisplayConversationsPage from "../../components/DisplayConversationsPage";
 import Sidebar from "../../components/Sidebar";
-import { io } from "socket.io-client";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  closeChatDiv,
   closeChatModal,
   closeModal,
   openChatDiv,
@@ -27,9 +25,6 @@ function ChatsPage() {
   const connectionUsers = useRef(null);
   let user = getFromLocalStorage();
   useEffect(() => {
-    socket.current = io(process.env.REACT_APP_SOCKET_LINK, {
-      withCredentials: true,
-    });
     if (window.innerWidth < 600) {
       dispatch(openChatDiv());
     }
