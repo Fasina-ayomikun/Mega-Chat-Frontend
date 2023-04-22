@@ -4,7 +4,6 @@ const getAllMessagesThunk = async (_, thunkAPI) => {
     const conversationId = JSON.parse(
       localStorage.getItem("Mega-Chat-ConversationId")
     );
-    console.log("mad", conversationId);
     const resp = await customUrl.get(`/messages/${conversationId}`);
 
     return resp.data;
