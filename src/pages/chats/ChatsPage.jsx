@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./chats.css";
 import DisplayConversationsPage from "../../components/DisplayConversationsPage";
 import Sidebar from "../../components/Sidebar";
-import io from "socket.io-client";
+import { io } from "socket.io-client";
 import { useDispatch, useSelector } from "react-redux";
 import {
   closeChatDiv,
