@@ -30,7 +30,7 @@ function ChatsPage() {
     socket.current = io(process.env.REACT_APP_SOCKET_LINK, {
       withCredentials: true,
       extraHeaders: {
-        "Access-Control-Allow-Origin": "https://mega-chat-socket.vercel.app",
+        "Access-Control-Allow-Origin": "https://mega-chat-frontend.vercel.app",
       },
     });
     if (window.innerWidth < 600) {
