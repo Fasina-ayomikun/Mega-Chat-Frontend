@@ -30,7 +30,7 @@ function DisplayConversationsPage({ socket, receiver, connectionUsers }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllMessages());
-    socket.current = io(process.env.REACT_APP_SOCKET_LINK, {
+    socket.current = io(process.env.REACT_APP_BACKEND_LINK, {
       withCredentials: true,
     });
     socket.current.on("getMessage", (data) => {
