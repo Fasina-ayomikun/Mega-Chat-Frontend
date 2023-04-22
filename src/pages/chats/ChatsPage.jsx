@@ -29,6 +29,9 @@ function ChatsPage() {
   useEffect(() => {
     socket.current = io(process.env.REACT_APP_SOCKET_LINK, {
       withCredentials: true,
+      extraHeaders: {
+        "Access-Control-Allow-Origin": "https://mega-chat-socket.vercel.app",
+      },
     });
     if (window.innerWidth < 600) {
       dispatch(openChatDiv());
