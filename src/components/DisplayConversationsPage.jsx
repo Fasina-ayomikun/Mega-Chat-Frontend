@@ -35,15 +35,15 @@ function DisplayConversationsPage({ socket, receiver, connectionUsers }) {
     });
     socket.current.on("getMessage", (data) => {
       console.log(data);
-      if (data.senderId !== user?.phone) {
-        dispatch(
-          createMessages({
-            conversationId: id,
-            senderId: data.senderId,
-            text: data.text,
-          })
-        );
-      }
+//       if (data.senderId !== user?.phone) {
+//         dispatch(
+//           createMessages({
+//             conversationId: id,
+//             senderId: data.senderId,
+//             text: data.text,
+//           })
+//         );
+//       }
     });
   }, []);
 
