@@ -35,6 +35,7 @@ function DisplayConversationsPage({ socket, receiver, connectionUsers }) {
     });
     socket.current.on("getMessage", (data) => {
       console.log(data);
+      dispatch(getAllMessages());
 //       if (data.senderId !== user?.phone) {
 //         dispatch(
 //           createMessages({
