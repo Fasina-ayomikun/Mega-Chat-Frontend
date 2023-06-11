@@ -33,24 +33,12 @@ function DisplayConversationsPage({ socket, receiver, connectionUsers }) {
     socket.current = io(process.env.REACT_APP_SOCKET_LINK, {
       withCredentials: true,
     });
-//     socket.current.on("getMessage", (data) => {
-//       console.log(data);
-//       dispatch(getAllMessages());
-// //       if (data.senderId !== user?.phone) {
-// //         dispatch(
-// //           createMessages({
-// //             conversationId: id,
-// //             senderId: data.senderId,
-// //             text: data.text,
-// //           })
-// //         );
-// //       }
-//     });
+
   }, []);
  useEffect(() => {
     
     socket.current.on("getMessage", (data) => {
-      console.log(data);
+    
       dispatch(getAllMessages());
     });
   }, [messages]);
