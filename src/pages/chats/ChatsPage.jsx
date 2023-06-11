@@ -36,7 +36,7 @@ function ChatsPage() {
     if (user) {
       socket.current.emit("addUser", user?.phone);
       socket.current.on("getUsers", (users) => {
-        console.log(users);
+    
         connectionUsers.current = users;
       });
     }
